@@ -1,0 +1,40 @@
+{
+    "exports": {
+        "nav": "Exports",
+        "title": "My exports",
+        "subtitle": "Excel and PDF files you asked for",
+        "noExports": "No exports yet",
+        "report": "Report",
+        "format": "Format",
+        "status": "Status",
+        "rows": "Rows",
+        "size": "Size",
+        "created": "Created",
+        "expires": "Available until",
+        "download": "Download",
+        "delete": "Delete",
+        "confirmDelete": "Delete this export file?",
+        "keepHint": "Files are kept for {days} days.",
+        "refresh": "Refresh",
+        "statuses": {
+            "queued": "Waiting",
+            "processing": "Preparing",
+            "ready": "Ready",
+            "failed": "Failed"
+        },
+        "reports": {
+            "sales": "Sales report",
+            "items": "Items sales report",
+            "profit": "Profit report",
+            "orders": "Orders",
+            "attendance": "Attendance report",
+            "attendance-history": "Attendance history",
+            "stock-levels": "Stock levels",
+            "stock-movements": "Stock movements",
+            "pos-shifts": "Cash drawer shifts",
+            "pos-shift-closing": "Shift closing report",
+            "expenses": "Expenses",
+            "expenses-report": "Expense report"
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "exports": {
+        "nav": "التصدير",
+        "title": "ملفاتي المصدّرة",
+        "subtitle": "ملفات Excel وPDF التي طلبتها",
+        "noExports": "لا توجد ملفات مصدّرة بعد",
+        "report": "التقرير",
+        "format": "الصيغة",
+        "status": "الحالة",
+        "rows": "الصفوف",
+        "size": "الحجم",
+        "created": "تاريخ الإنشاء",
+        "expires": "متاح حتى",
+        "download": "تنزيل",
+        "delete": "حذف",
+        "confirmDelete": "حذف ملف التصدير هذا؟",
+        "keepHint": "تُحفظ الملفات لمدة {days} أيام.",
+        "refresh": "تحديث",
+        "statuses": {
+            "queued": "في الانتظار",
+            "processing": "قيد التجهيز",
+            "ready": "جاهز",
+            "failed": "فشل"
+        },
+        "reports": {
+            "sales": "تقرير المبيعات",
+            "items": "تقرير مبيعات الأصناف",
+            "profit": "تقرير الأرباح",
+            "orders": "الطلبات",
+            "attendance": "تقرير الحضور",
+            "attendance-history": "سجل الحضور",
+            "stock-levels": "مستويات المخزون",
+            "stock-movements": "حركات المخزون",
+            "pos-shifts": "ورديات صندوق النقد",
+            "pos-shift-closing": "تقرير إغلاق الوردية",
+            "expenses": "المصروفات",
+            "expenses-report": "تقرير المصروفات"
+        }
+    }
+}
