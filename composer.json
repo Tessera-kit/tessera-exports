@@ -5,8 +5,8 @@
     "license": "proprietary",
     "require": {
         "php": "^8.4",
-        "tessera/tessera-engine": "^3.0",
-        "tessera/tessera-tenant": "^3.0",
+        "tessera/tessera-engine": "^4.0",
+        "tessera/tessera-tenant": "^4.0",
         "mpdf/mpdf": "*",
         "openspout/openspout": "*"
     },
@@ -22,7 +22,7 @@
             ]
         },
         "branch-alias": {
-            "dev-main": "3.x-dev"
+            "dev-main": "4.x-dev"
         }
     },
     "replace": {
