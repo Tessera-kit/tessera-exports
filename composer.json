@@ -1,12 +1,12 @@
 {
-    "name": "ahmad-chebbo/tessera-exports",
+    "name": "tessera/tessera-exports",
     "description": "The Exports module of Tessera.",
     "type": "library",
     "license": "proprietary",
     "require": {
         "php": "^8.4",
-        "ahmad-chebbo/tessera-engine": "^1.0",
-        "ahmad-chebbo/tessera-saas": "^1.2",
+        "tessera/tessera-engine": "^2.0",
+        "tessera/tessera-saas": "^2.0",
         "mpdf/mpdf": "*",
         "openspout/openspout": "*"
     },
@@ -22,7 +22,10 @@
             ]
         },
         "branch-alias": {
-            "dev-main": "1.x-dev"
+            "dev-main": "2.x-dev"
         }
+    },
+    "replace": {
+        "ahmad-chebbo/tessera-exports": "self.version"
     }
 }

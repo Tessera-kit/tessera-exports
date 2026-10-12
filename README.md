@@ -2,7 +2,7 @@
 
 The report export engine: Excel (streamed) and PDF (Arabic and English), small exports while the user waits, big ones in the background, and a page that lists finished files.
 
-A module for [Tessera](https://github.com/Ahmad-Chebbo/tessera-kit). It needs a project made from the [Tessera starter](https://github.com/Ahmad-Chebbo/tessera-starter) (the engine, the core and the interface kit).
+A module for [Tessera](https://github.com/Tessera-kit/tessera-kit). It needs a project made from the [Tessera starter](https://github.com/Tessera-kit/tessera-starter) (the engine, the core and the interface kit).
 
 ## Install
 
@@ -11,11 +11,11 @@ php artisan module:add exports
 bun run build
 ```
 
-`module:add` requires `ahmad-chebbo/tessera-exports`, runs the migrations and gives the roles of every company the new permissions. Without it:
+`module:add` requires `tessera/tessera-exports`, runs the migrations and gives the roles of every company the new permissions. Without it:
 
 ```bash
-composer config repositories.tessera composer https://ahmad-chebbo.github.io/tessera-kit
-composer require ahmad-chebbo/tessera-exports
+composer config repositories.tessera composer https://tessera-kit.github.io/tessera-kit
+composer require tessera/tessera-exports
 php artisan migrate
 php artisan modules:sync
 bun run build
@@ -51,7 +51,7 @@ The module lives in `packages/modules/exports` of the monorepo, with its tests i
 
 ## Part of Tessera
 
-This repository is a read-only copy of a folder in the [tessera-kit](https://github.com/Ahmad-Chebbo/tessera-kit) monorepo. Open issues and pull requests there, not here.
+This repository is a read-only copy of a folder in the [tessera-kit](https://github.com/Tessera-kit/tessera-kit) monorepo. Open issues and pull requests there, not here.
 
 ## License
 
