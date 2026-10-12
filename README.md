@@ -14,7 +14,7 @@ bun run build
 `module:add` requires `ahmad-chebbo/tessera-exports`, runs the migrations and gives the roles of every company the new permissions. Without it:
 
 ```bash
-composer config repositories.tessera --json '{"type":"composer","url":"https://ahmad-chebbo.github.io/tessera-kit"}'
+composer config repositories.tessera composer https://ahmad-chebbo.github.io/tessera-kit
 composer require ahmad-chebbo/tessera-exports
 php artisan migrate
 php artisan modules:sync
