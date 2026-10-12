@@ -22,7 +22,7 @@ class ExportController extends Controller
     public function index(Request $request): Response
     {
         $files = ExportFile::query()
-            ->where('company_id', $request->user()->company_id)
+            ->where('tenant_id', $request->user()->tenant_id)
             ->where('user_id', $request->user()->id)
             ->latest('id')
             ->limit(50)
@@ -68,7 +68,7 @@ class ExportController extends Controller
 
     private function ensureOwned(Request $request, ExportFile $export): void
     {
-        abort_unless($export->company_id === $request->user()->company_id && $export->user_id === $request->user()->id, 403);
+        abort_unless($export->tenant_id === $request->user()->tenant_id && $export->user_id === $request->user()->id, 403);
     }
 
     /**

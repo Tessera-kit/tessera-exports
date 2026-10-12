@@ -26,7 +26,7 @@ class GenerateReportExport implements ShouldQueue
 
     public function handle(ExportService $service): void
     {
-        $export = ExportFile::query()->with(['user.company'])->find($this->exportId);
+        $export = ExportFile::query()->with(['user.tenant'])->find($this->exportId);
 
         if ($export === null) {
             return;

@@ -1,10 +1,10 @@
 <?php
 
-use App\Modules\Company\Models\Branch;
-use App\Modules\Company\Models\Company;
 use App\Modules\Exports\Engine\ReportRegistry;
 use App\Modules\Exports\Models\ExportFile;
 use App\Modules\Team\Models\User;
+use App\Modules\Tenant\Models\Branch;
+use App\Modules\Tenant\Models\Tenant;
 use Illuminate\Support\Facades\Storage;
 use OpenSpout\Reader\XLSX\Reader;
 use Spatie\Permission\Models\Permission;
@@ -85,12 +85,12 @@ beforeEach(function () {
         }
     });
 
-    $this->company = Company::factory()->create(['name' => 'Beirut Mart', 'timezone' => 'UTC']);
-    $this->branch = Branch::factory()->create(['company_id' => $this->company->id]);
-    $this->user = User::factory()->create(['company_id' => $this->company->id, 'branch_id' => $this->branch->id])->givePermissionTo('export reports');
+    $this->tenant = Tenant::factory()->create(['name' => 'Beirut Mart', 'timezone' => 'UTC']);
+    $this->branch = Branch::factory()->create(['tenant_id' => $this->tenant->id]);
+    $this->user = User::factory()->create(['tenant_id' => $this->tenant->id, 'branch_id' => $this->branch->id])->givePermissionTo('export reports');
 });
 
-it('writes a report to Excel with the company name, headings and rows', function () {
+it('writes a report to Excel with the tenant name, headings and rows', function () {
     $response = $this->actingAs($this->user)->postJson(route('exports.store'), ['report' => 'demo', 'format' => 'xlsx', 'locale' => 'en', 'filters' => []])
         ->assertCreated()->assertJsonPath('status', 'ready');
 
@@ -115,6 +115,6 @@ it('writes the same report to PDF in Arabic', function () {
 it('refuses reports no module offers and people without the permission', function () {
     $this->actingAs($this->user)->postJson(route('exports.store'), ['report' => 'ghost', 'format' => 'xlsx', 'locale' => 'en'])->assertUnprocessable()->assertJsonValidationErrors('report');
 
-    $stranger = User::factory()->create(['company_id' => $this->company->id, 'branch_id' => $this->branch->id]);
+    $stranger = User::factory()->create(['tenant_id' => $this->tenant->id, 'branch_id' => $this->branch->id]);
     $this->actingAs($stranger)->postJson(route('exports.store'), ['report' => 'demo', 'format' => 'xlsx', 'locale' => 'en'])->assertForbidden();
 });

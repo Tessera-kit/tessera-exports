@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('export_files', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('tenant_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('report', 48);
             $table->string('format', 8);

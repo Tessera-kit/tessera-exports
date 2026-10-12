@@ -33,7 +33,7 @@ class ExportGenerator
         return new ReportLayout(
             context: $context,
             title: $context->t("reports.{$report->key()}"),
-            companyName: $context->company->name,
+            tenantName: $context->tenant->name,
             generatedLine: $generated,
             filterLines: $report->filterLines($context),
             summary: $report->summary($context),

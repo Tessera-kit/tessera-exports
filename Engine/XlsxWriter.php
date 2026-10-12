@@ -44,7 +44,7 @@ class XlsxWriter
             ->withShouldWrapText(true)
             ->withCellAlignment(CellAlignment::CENTER);
 
-        $lines = [[$layout->title, $titleStyle], [$layout->companyName, $bold], [$layout->generatedLine, $muted]];
+        $lines = [[$layout->title, $titleStyle], [$layout->tenantName, $bold], [$layout->generatedLine, $muted]];
 
         foreach ($layout->filterLines as $line) {
             $lines[] = [$line, $muted];

@@ -43,7 +43,7 @@ class ExportService
         }
 
         $export = ExportFile::create([
-            'company_id' => $user->company_id,
+            'tenant_id' => $user->tenant_id,
             'user_id' => $user->id,
             'report' => $report,
             'format' => $format,
@@ -78,7 +78,7 @@ class ExportService
         $definition = $this->reports->get($export->report);
         $context = $this->context($export->user, $export->locale, $export->filters ?? []);
 
-        $directory = "exports/{$export->company_id}";
+        $directory = "exports/{$export->tenant_id}";
         $disk = Storage::disk(config('exports.disk'));
         $disk->makeDirectory($directory);
 
@@ -142,7 +142,7 @@ class ExportService
 
     public function context(User $user, string $locale, array $filters): ExportContext
     {
-        return new ExportContext($user, $user->company, $locale, $filters);
+        return new ExportContext($user, $user->tenant, $locale, $filters);
     }
 
     /**
@@ -154,7 +154,7 @@ class ExportService
         $rules = [
             'date_from' => ['nullable', 'date_format:Y-m-d'],
             'date_to' => ['nullable', 'date_format:Y-m-d'],
-            ...$definition->filterRules($user->company_id),
+            ...$definition->filterRules($user->tenant_id),
         ];
 
         $validator = Validator::make($filters, $rules);

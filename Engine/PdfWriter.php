@@ -55,7 +55,7 @@ class PdfWriter
 
         $mpdf->SetDirectionality($rtl ? 'rtl' : 'ltr');
         $mpdf->SetTitle($layout->title);
-        $mpdf->SetAuthor($layout->companyName);
+        $mpdf->SetAuthor($layout->tenantName);
         $mpdf->SetHTMLFooter('<div style="text-align:center;font-size:8pt;color:#777777;">'.e($layout->title).' — {PAGENO} / {nbpg}</div>');
 
         $mpdf->WriteHTML($this->styles($rtl), HTMLParserMode::HEADER_CSS);
@@ -93,7 +93,7 @@ class PdfWriter
         return <<<CSS
         body { font-family: dejavusans; font-size: 9pt; color: #222222; }
         h1 { font-size: 15pt; margin: 0 0 2pt 0; }
-        .company { font-size: 10pt; font-weight: bold; margin: 0; }
+        .tenant { font-size: 10pt; font-weight: bold; margin: 0; }
         .muted { color: #666666; font-size: 8pt; margin: 1pt 0; }
         table.summary { border-collapse: collapse; margin: 6pt 0 8pt 0; }
         table.summary td { padding: 2pt 8pt; border: 0.3pt solid #cccccc; font-size: 9pt; }
@@ -111,7 +111,7 @@ class PdfWriter
     private function heading(ReportLayout $layout, ValueFormatter $formatter): string
     {
         $html = '<h1>'.e($layout->title).'</h1>';
-        $html .= '<p class="company">'.e($layout->companyName).'</p>';
+        $html .= '<p class="tenant">'.e($layout->tenantName).'</p>';
         $html .= '<p class="muted">'.e($layout->generatedLine).'</p>';
 
         foreach ($layout->filterLines as $line) {

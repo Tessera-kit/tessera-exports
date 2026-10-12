@@ -2,17 +2,17 @@
 
 namespace App\Modules\Exports\Models;
 
-use App\Modules\Company\Models\Company;
 use App\Modules\Exports\Enums\ExportFormat;
 use App\Modules\Exports\Enums\ExportStatus;
 use App\Modules\Team\Models\User;
+use App\Modules\Tenant\Models\Tenant;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ExportFile extends Model
 {
     protected $fillable = [
-        'company_id',
+        'tenant_id',
         'user_id',
         'report',
         'format',
@@ -45,9 +45,9 @@ class ExportFile extends Model
         ];
     }
 
-    public function company(): BelongsTo
+    public function tenant(): BelongsTo
     {
-        return $this->belongsTo(Company::class);
+        return $this->belongsTo(Tenant::class);
     }
 
     public function user(): BelongsTo
