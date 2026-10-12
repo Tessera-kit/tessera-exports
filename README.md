@@ -2,7 +2,7 @@
 
 The report export engine: Excel (streamed) and PDF (Arabic and English), small exports while the user waits, big ones in the background, and a page that lists finished files.
 
-A module for [Tessera](https://github.com/Tessera-kit/tessera-kit). It needs a project made from the [Tessera starter](https://github.com/Tessera-kit/tessera-starter) (the engine, the core and the interface kit).
+A module for [Tessera](https://github.com/Tessera-kit/tessera-kit). It needs a project made from one of the Tessera starters, the [SaaS starter](https://github.com/Tessera-kit/tessera-starter) or the [fresh starter](https://github.com/Tessera-kit/tessera-fresh): the engine, the base and the interface kit.
 
 ## Install
 
@@ -23,7 +23,7 @@ bun run build
 
 ## What it needs
 
-- Other Tessera modules: none besides the core.
+- Other Tessera modules: none. It needs the base and tenant packages, which every project has.
 - Composer packages: `mpdf/mpdf`, `openspout/openspout`.
 
 ## What it adds
@@ -43,7 +43,7 @@ Menu entries: Exports.
 
 ## Turn it off without removing it
 
-Set `MODULES_ENABLED` in `.env` to the modules you want, for example `MODULES_ENABLED=catalog,sales`. Core modules are always on. A module that is left out disappears from the menu, the routes and the plan features.
+Set `MODULES_ENABLED` in `.env` to the modules you want, for example `MODULES_ENABLED=exports`. The core modules (Auth, Team and Tenant) are always on. A module that is left out disappears from the menu, the routes and the plan features.
 
 ## Develop
 
